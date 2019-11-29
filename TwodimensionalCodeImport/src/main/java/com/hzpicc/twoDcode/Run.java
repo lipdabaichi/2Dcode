@@ -65,7 +65,7 @@ public class Run {
 //                    wordCols.setShebeimingcheng(s[j]);
 //                }
                 } catch (NullPointerException e) {
-                    return;
+                    continue;
                 }
             }
             list.add(wordCols);
