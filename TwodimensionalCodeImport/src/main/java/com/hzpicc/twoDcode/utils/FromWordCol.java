@@ -1,5 +1,6 @@
 package com.hzpicc.twoDcode.utils;
 
+
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFTable;
 import org.apache.poi.xwpf.usermodel.XWPFTableCell;
@@ -61,6 +62,20 @@ public class FromWordCol {
         //System.out.println(lnr.getLineNumber() + 1);
         lnr.close();
         return lnr.getLineNumber() + 1;
+    }
+
+    public static String[][] switchArray(String[] nums,Integer rows ,Integer cols){
+        String[][] numArray=new String[rows][cols];
+        int length=nums.length;
+        for(int i=0;i<length;i++){
+            String num=nums[i];
+            //一维数组nums中的第index个除三取余数为二维数组的行
+            int a=i / cols;
+            //一维数组nums中的第index个除三取模为二维数组的列
+            int b=i % cols;
+            numArray[a][b]=num;
+        }
+        return numArray;
     }
 
 }
