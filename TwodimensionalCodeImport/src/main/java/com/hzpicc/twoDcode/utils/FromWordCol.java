@@ -1,6 +1,7 @@
 package com.hzpicc.twoDcode.utils;
 
 
+import com.hzpicc.twoDcode.pojo.WordCols;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFTable;
 import org.apache.poi.xwpf.usermodel.XWPFTableCell;
@@ -10,6 +11,7 @@ import java.io.CharArrayReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.LineNumberReader;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -77,5 +79,42 @@ public class FromWordCol {
         }
         return numArray;
     }
+
+    /**
+     *
+     * @param fout      输出文件路径;注意必须执行的列   必须存在数据(akc回答:不一定)
+     */
+    public void out2Excel(List<WordCols> list ,String fout){
+        //修改excel表中的某列的数据
+        //from poi的写入excel
+        Integer nums=1;
+        for (WordCols words:list) {
+            nums++;
+            ExcelOutput.writeSpecifiedCell(fout, String.valueOf("A"+nums),words.getIdcode());
+            ExcelOutput.writeSpecifiedCell(fout, String.valueOf("C"+nums),words.getShiyongdanwei());
+            ExcelOutput.writeSpecifiedCell(fout, String.valueOf("B"+nums),words.getShebeimingcheng());
+            ExcelOutput.writeSpecifiedCell(fout, String.valueOf("G"+nums),"在用");
+            ExcelOutput.writeSpecifiedCell(fout, String.valueOf("S"+nums),words.getPosition());
+            ExcelOutput.writeSpecifiedCell(fout, String.valueOf("AA"+nums),words.getWeibaodanwei());
+            ExcelOutput.writeSpecifiedCell(fout, String.valueOf("AJ"+nums),"浙江省");
+            ExcelOutput.writeSpecifiedCell(fout, String.valueOf("AK"+nums),"杭州市");
+            ExcelOutput.writeSpecifiedCell(fout, String.valueOf("AL"+nums),"拱墅区");
+            ExcelOutput.writeSpecifiedCell(fout, String.valueOf("AR"+nums),words.getNianjianshijian());
+        }
+//        for (int i = outStartRow; i <=endRow; i++) {
+//
+//        }
+    }
+
+    public static boolean isNumeric(String str) {
+        String bigStr;
+        try {
+            bigStr = new BigDecimal(str).toString();
+        } catch (Exception e) {
+            return false;//异常 说明包含非数字。
+        }
+        return true;
+    }
+
 
 }

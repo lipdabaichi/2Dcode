@@ -18,6 +18,15 @@ public class WordCols {
     private String zaizhong;
     private String baofei;
     private String shebeimingcheng;// 小区名称
+    private String nianjianshijian;
+
+    public String getNianjianshijian() {
+        return nianjianshijian;
+    }
+
+    public void setNianjianshijian(String nianjianshijian) {
+        this.nianjianshijian = nianjianshijian;
+    }
 
     public String getXvhao() {
         return xvhao;
@@ -121,6 +130,7 @@ public class WordCols {
                 ", zaizhong='" + zaizhong + '\'' +
                 ", baofei='" + baofei + '\'' +
                 ", shebeimingcheng='" + shebeimingcheng + '\'' +
+                ", nianjianshijian='" + nianjianshijian + '\'' +
                 '}';
     }
 }
