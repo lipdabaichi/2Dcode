@@ -31,7 +31,7 @@ public class Run {
         String init2 = init1.substring(init1.indexOf("1"));
         System.out.println(init2);
         //String init1中的行数
-       Integer strRows = Integer.valueOf((int) (FromWordCol.getLineNumberByIo(init2) - 1)) ;
+        Integer strRows = Integer.valueOf((int) (FromWordCol.getLineNumberByIo(init2) - 1));
 
         System.out.println("_____________________________________________________________________________________________________________________________________________________________");
         init2 = init2.replaceAll("\\s+", "--");
